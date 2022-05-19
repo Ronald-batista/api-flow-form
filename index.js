@@ -3,7 +3,23 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const routes = require("./config/routes");
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+
+const flatmapfuncionaporfavor = require("core-js/stable");
+
+mongoose
+  .connect(
+    "mongodb+srv://userRonald:Sharkoon1001001@cluster0.7blnu.mongodb.net/?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+    }
+  )
+  .then(() => {
+    console.log("Conectado ao banco de dados");
+  })
+  .catch((err) => {
+    console.log("ERRO AO CONECTAR NO BANCO DE DADOS" + err);
+  });
 
 const app = express();
 
