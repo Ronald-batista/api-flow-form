@@ -3,23 +3,13 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const routes = require("./config/routes");
-const mongoose = require('mongoose');
+require("dotenv").config();
 
-const flatmapfuncionaporfavor = require("core-js/stable");
+const protocol = process.env.PROTOCOL || "http";
+// const ip = require("ip").address(); // npm package not installed
+const port = process.env.PORT || 21262;
 
-mongoose
-  .connect(
-    "mongodb+srv://userRonald:Sharkoon1001001@cluster0.7blnu.mongodb.net/?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-    }
-  )
-  .then(() => {
-    console.log("Conectado ao banco de dados");
-  })
-  .catch((err) => {
-    console.log("ERRO AO CONECTAR NO BANCO DE DADOS" + err);
-  });
+
 
 const app = express();
 
