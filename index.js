@@ -19,6 +19,6 @@ app.use(express.json());
 app.use(cors());
 app.use(routes);
 
-app.listen(21262, () => {
-  console.log("Server is running on http://localhost:21262");
+app.listen(port, () => {
+  console.log("Server is running on http://localhost:" + port);
 });

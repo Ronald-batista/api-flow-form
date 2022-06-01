@@ -7,6 +7,7 @@ const username = process.env.USERNAME;
 const password = process.env.PASSWORD;
 const host = process.env.HOST;
 const dialect = process.env.DIALECT || "mysql";
+const cert = process.env.SSL_CA;
 
 const connection = new Sequelize(database, username, password, {
   host,
@@ -15,7 +16,7 @@ const connection = new Sequelize(database, username, password, {
    // encrypt: true,
     ssl: {
       rejectUnauthorized: true,
-      ca: fs.readFileSync("certs/DigiCertGlobalRootCA.crt.pem", "utf8"),
+      ca: fs.readFileSync(cert, "utf8"),
     },
   },
 });
